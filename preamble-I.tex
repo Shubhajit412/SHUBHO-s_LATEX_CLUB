@@ -19,7 +19,7 @@
 % Commands to use this preamble
 %------------------------------------
 
-% Keep this file in the same working directory in which your project is saved and.
+% Keep this file in the same working directory in which your project is saved and
 % insert the following command in the first line of your project. 
 % \input{preamble-I.tex}
 %%%%%%%%%%%%%%%%
@@ -60,6 +60,7 @@
 \usepackage{float} %.........................controls the placement of floating environments (figures/tables).
 \usepackage{tikz} %..........................creates complex graphics and diagrams directly in LaTeX.
 \usepackage{subcaption} %....................similar to subfigure but with more flexible captioning.
+\usepackage{graphicx} %......................imports and manipulates graphics and images.
 
 % algorithms and pseudocode...
 \usepackage{algorithmicx} %..................core package for algorithm environments.
@@ -153,6 +154,7 @@
 % Additional Commands
 %------------------------------------ 
 \titleformat{\section}{\Large\bfseries\centering}{}{0em}{\underline} %......customize section header formatting to hide section numbers & other font edits
+\graphicspath{{Images/}} %..................................................directory to keep all the images used in the project
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Document
