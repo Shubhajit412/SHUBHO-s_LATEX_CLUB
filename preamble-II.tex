@@ -1,0 +1,205 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Preamble-II
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%
+% Disclaimer.
+%%%%%%%%%%%%%%%%
+% This is an academic document template created without any additional dependencies
+% or technical requirements. Please note that this is version = v1.1 officially
+% released on 29 Mar 2025, written by Shubhajit Dey (shubhajitdey412@icloud.com).
+
+% It may be distributed and/or modified under the conditions of the LaTeX Project
+% Public License, either version 1.3 of this license or (at your option) any later
+% version. The latest version of this license is in http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX version 2003/12/01
+% or later.
+
+%------------------------------------
+% Commands to use this preamble
+%------------------------------------
+
+% Keep this file in the same working directory in which your project is saved and.
+% insert the following command in the first line of your project. 
+% \input{preamble-II.tex}
+%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{article}
+\usepackage[margin=0.9in,a4paper]{geometry}
+\setlength{\parindent}{0pt} %...........indent length for new paragraphs.
+\setlength{\parskip}{5pt} %.............distance between paragraphs.
+\pagenumbering{arabic} %................sets the page numbering style.
+
+%------------------------------------
+% All Packages
+%------------------------------------
+
+% math packages...
+\usepackage{amsmath,amsthm,amssymb} %........all a mathematician needs.
+\usepackage{mathtools} %.....................extends amsmath with extra math features.
+\usepackage{yhmath} %........................adds extra math symbols (wide accents, large operators).
+\usepackage{mathpartir} %....................for natural deduction-style proofs and inference rules.
+
+% color and framing...
+\usepackage[dvipsnames,table]{xcolor} %......adds color capabilities (text, tables, backgrounds).
+\usepackage{tcolorbox} %.....................creates colored and customizable text boxes.
+\usepackage{framed} %........................creates framed content blocks.
+
+% lists, layouts and tables...
+\usepackage{enumitem} %......................for enumeration enviro.
+\usepackage{makecell} %......................allows multi-line text and formatting inside table cells.
+\usepackage{multirow} %......................merges multiple rows into a single table cell.
+\usepackage{multicol} %......................creates multi-column content in the document.
+\usepackage{paracol} %.......................creates parallel columns (useful for multilingual texts).
+\usepackage{titlesec} %......................customizes section and subsection formatting.
+\usepackage{tocloft} %.......................customizes the Table of Contents (ToC) layout and formatting.
+\usepackage{hyperref} %......................adds hyperlinks inside the generated pdf.
+\usepackage{tabularx} %......................extra features for tabular environment
+% figures and captions...
+\usepackage{subfigure} %.....................adds multiple sub-figures inside a single figure environment.
+\usepackage{float} %.........................controls the placement of floating environments (figures/tables).
+\usepackage{tikz} %..........................creates complex graphics and diagrams directly in LaTeX.
+\usepackage{subcaption} %....................similar to subfigure but with more flexible captioning.
+\usepackage{graphicx} %......................imports and manipulates graphics and images.
+
+% algorithms and pseudocode...
+\usepackage{algorithmicx} %..................core package for algorithm environments.
+\usepackage[ruled]{algorithm} %..............adds floating environments for algorithms (with captioning).
+\usepackage{algpseudocode} %.................adds pseudocode syntax to algorithm environment.
+\usepackage{algpascal} %.....................provides Pascal-style pseudocode.
+\usepackage{algc} %..........................provides C-style pseudocode.
+
+% text and symbols...
+\usepackage{textcomp} %......................adds extra symbols (e.g., \textmu for µ).
+
+% appendices and collecting...
+\usepackage{appendix} %......................simplifies the creation of appendices.
+\usepackage{collectbox} %....................collects and processes content inside a box.
+
+%------------------------------------
+% Theorem Environments
+%------------------------------------
+
+% under usage...
+\newtheorem{euclidtheorem}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{classtheorem}{Definition}[section]
+\newtheorem{gausstheorem}{Corollary}[section]
+\newtheorem{eulertheorem}{Lemma}[section]
+
+\newtheorem{challenge}[theorem]{Challenge}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{problem}[theorem]{Problem}
+
+\newtheorem{theorempiece}{Theorem}[theorem]
+\newtheorem{classtheorempiece}{Theorem}[classtheorem]
+\newtheorem{challengepiece}{Challenge}[theorem]
+\newtheorem{questionpiece}{Question}[theorem]
+\newtheorem{problempiece}{Problem}[theorem]
+
+
+% under usage...
+\renewcommand*{\theeuclidtheorem}{\arabic{section}.\arabic{subsection}.\arabic{theorem}}
+\renewcommand*{\thetheorem}{\arabic{section}.\arabic{subsection}.\arabic{theorem}}
+\renewcommand*{\theclasstheorem}{\arabic{section}.\arabic{subsection}.\arabic{theorem}}
+\renewcommand*{\thegausstheorem}{\arabic{section}.\arabic{subsection}.\arabic{theorem}}
+\renewcommand*{\theeulertheorem}{\arabic{section}.\arabic{subsection}.\arabic{theorem}}
+
+\renewcommand*{\thechallenge}{\arabic{section}.\arabic{theorem}}
+\renewcommand*{\thequestion}{\arabic{section}.\arabic{theorem}}
+\renewcommand*{\theproblem}{\arabic{section}.\arabic{theorem}}
+\renewcommand*{\thetheorempiece}{\arabic{section}.\arabic{theorem}.\alph{theorempiece}}
+\renewcommand*{\thechallengepiece}{\arabic{section}.\arabic{theorem}.\alph{challengepiece}}
+\renewcommand*{\thequestionpiece}{\arabic{section}.\arabic{theorem}.\alph{questionpiece}}
+\renewcommand*{\theproblempiece}{\arabic{section}.\arabic{theorem}.\alph{problempiece}}
+
+%------------------------------------
+% Abstract Environment
+%------------------------------------
+% to adjust the width of the Abstract section
+
+\renewenvironment{abstract}
+{\small
+	\begin{center}
+		\bfseries \abstractname\vspace{-.5em}\vspace{0pt}
+  	\end{center}
+	\list{}{
+    	\setlength{\leftmargin}{2cm}%
+    	\setlength{\rightmargin}{\leftmargin}%
+  	}%
+	\item\relax}
+{\endlist}
+
+%------------------------------------
+% Bibliography
+%------------------------------------
+% makes bibliography in columns
+
+\makeatletter
+\renewenvironment{thebibliography}[1]
+     {\begin{multicols}{2}[\section*{\refname}]%
+      \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist\end{multicols}}
+\makeatother
+
+%------------------------------------
+% Custom Symbols
+%------------------------------------
+\newcommand{\btr}{\blacktriangleright}
+\newcommand{\notimplies}{\;\not\!\!\!\implies}
+\newcommand{\rat}{\rightarrowtail}
+
+%------------------------------------
+% Colors
+%------------------------------------
+\definecolor{paynes.grey}{HTML}{536878}
+\definecolor{wine}{HTML}{722F37}
+\definecolor{dutch.white}{HTML}{efdfbb}
+
+\colorlet{paynes.grey}{paynes.grey}
+\colorlet{wine}{wine}
+\colorlet{dutch.white}{dutch.white}
+
+%------------------------------------
+% Hyperlink setup
+%------------------------------------
+\hypersetup{
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=wine,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+
+%------------------------------------
+% Customize the Table of Contents 
+%------------------------------------
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} %.............dotted lines for sections.
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}} %..........dotted lines for subsections.
+\cftsetindents{section}{0.25em}{1.8em} %............................adjust the space between section number & title.
+\cftsetindents{subsection}{1.5em}{2.3em} %.........[exp]............adjust the space between subsection number & title.
+
+%------------------------------------
+% Additional Commands
+%------------------------------------ 
+\titleformat{\section}{\Large\bfseries\centering}{}{0em}{\underline} %......customize section header formatting to hide section numbers & other font edits
+\graphicspath{{Images/}} %..................................................directory to keep all the images used in the project
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
