@@ -17,7 +17,7 @@ To effectively use these preamble files in your LaTeX project, please follow the
 1.  **Include Preamble:** The very first line of your main LaTeX document that utilizes one of these preambles should be the `\input{}` command, followed by the name of the preamble file you wish to use. This should be followed by either additional LaTeX commands specific to your document or directly by the `\begin{document}` command.
 
     ```latex
-    \input{my_custom_preamble.tex} % Replace with the actual preamble file name
+    \input{preamble.tex} % Replace with the actual preamble file name
     % Add any other document-specific packages or settings here if needed
     \begin{document}
     % Your main document content goes here
