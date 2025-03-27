@@ -52,7 +52,7 @@ To effectively use these preamble files in your LaTeX project, please follow the
 If you have created useful preamble files that you would like to share, feel free to contribute by submitting a pull request. Please ensure that your preamble files are well-documented and adhere to the intended academic purpose.
 
 To contribute:
-    1.  Fork the repository.
+    1.  Fork the repository.\\
     2.  Create a new branch.
     3.  Add your changes and commit them.
     4.  Submit a pull request.
