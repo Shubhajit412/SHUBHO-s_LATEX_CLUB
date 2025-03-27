@@ -53,9 +53,9 @@ If you have created useful preamble files that you would like to share, feel fre
 
 To contribute:
 
-    1.  Fork the repository.\
-    2.  Create a new branch.\
-    3.  Add your changes and commit them.\
+    1.  Fork the repository.
+    2.  Create a new branch.
+    3.  Add your changes and commit them.
     4.  Submit a pull request.
 
 **License:**
