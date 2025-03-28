@@ -1,0 +1,317 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Preamble-I
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%
+% Disclaimer.
+%%%%%%%%%%%%%%%%
+% This is an academic document template created without any additional dependencies
+% or technical requirements. Please note that this is version = v1.0 officially
+% released on 28 Mar 2025, written by Shubhajit Dey (shubhajitdey412@icloud.com).
+
+% It may be distributed and/or modified under the conditions of the LaTeX Project
+% Public License, either version 1.3 of this license or (at your option) any later
+% version. The latest version of this license is in http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX version 2003/12/01
+% or later.
+
+%------------------------------------
+% Commands to use this preamble
+%------------------------------------
+
+% Keep this file in the same working directory in which your project is saved and.
+% insert the following command in the first line of your project. 
+% \input{preamble-I.tex}
+%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{article}
+\usepackage[margin=0.55in,a4paper,landscape]{geometry}
+\setlength{\parindent}{0pt} %...........indent length for new paragraphs.
+\setlength{\parskip}{5pt} %.............distance between paragraphs.
+\pagenumbering{arabic} %................sets the page numbering style.
+
+%------------------------------------
+% All Packages
+%------------------------------------
+
+% math packages...
+\usepackage{amsmath,amsthm,amssymb} %........all a mathematician needs.
+\usepackage{mathtools} %.....................extends amsmath with extra math features.
+\usepackage{yhmath} %........................adds extra math symbols (wide accents, large operators).
+\usepackage{mathpartir} %....................for natural deduction-style proofs and inference rules.
+
+% color and framing...
+\usepackage[dvipsnames,table]{xcolor} %......adds color capabilities (text, tables, backgrounds).
+\usepackage{tcolorbox} %.....................creates colored and customizable text boxes.
+\usepackage{framed} %........................creates framed content blocks.
+
+% lists, layouts and tables...
+\usepackage{enumitem} %......................for enumeration enviro.
+\usepackage{makecell} %......................allows multi-line text and formatting inside table cells.
+\usepackage{multirow} %......................merges multiple rows into a single table cell.
+\usepackage{multicol} %......................creates multi-column content in the document.
+\usepackage{paracol} %.......................creates parallel columns (useful for multilingual texts).
+\usepackage{titlesec} %......................customizes section and subsection formatting.
+\usepackage{tocloft} %.......................customizes the Table of Contents (ToC) layout and formatting.
+\usepackage{hyperref} %......................adds hyperlinks inside the generated pdf.
+
+% figures and captions...
+\usepackage{subfigure} %.....................adds multiple sub-figures inside a single figure environment.
+\usepackage{float} %.........................controls the placement of floating environments (figures/tables).
+\usepackage{tikz} %..........................creates complex graphics and diagrams directly in LaTeX.
+\usepackage{subcaption} %....................similar to subfigure but with more flexible captioning.
+\usepackage{graphicx} %......................imports and manipulates graphics and images.
+
+% algorithms and pseudocode...
+\usepackage{algorithmicx} %..................core package for algorithm environments.
+\usepackage[ruled]{algorithm} %..............adds floating environments for algorithms (with captioning).
+\usepackage{algpseudocode} %.................adds pseudocode syntax to algorithm environment.
+\usepackage{algpascal} %.....................provides Pascal-style pseudocode.
+\usepackage{algc} %..........................provides C-style pseudocode.
+
+% text and symbols...
+\usepackage{textcomp} %......................adds extra symbols (e.g., \textmu for µ).
+
+% appendices and collecting...
+\usepackage{appendix} %......................simplifies the creation of appendices.
+\usepackage{collectbox} %....................collects and processes content inside a box.
+
+%------------------------------------
+% Theorem Environments
+%------------------------------------
+
+% under usage...
+\newtheorem{euclidtheorem}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{classtheorem}{Definition}[section]
+\newtheorem{gausstheorem}{Corollary}[section]
+\newtheorem{eulertheorem}{Lemma}[section]
+
+\newtheorem{challenge}[theorem]{Challenge}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{problem}[theorem]{Problem}
+
+\newtheorem{theorempiece}{Theorem}[theorem]
+\newtheorem{classtheorempiece}{Theorem}[classtheorem]
+\newtheorem{challengepiece}{Challenge}[theorem]
+\newtheorem{questionpiece}{Question}[theorem]
+\newtheorem{problempiece}{Problem}[theorem]
+
+
+% under usage...
+\renewcommand*{\theeuclidtheorem}{\arabic{section}.\arabic{subsection}.\arabic{theorem}}
+\renewcommand*{\thetheorem}{\arabic{section}.\arabic{subsection}.\arabic{theorem}}
+\renewcommand*{\theclasstheorem}{\arabic{section}.\arabic{subsection}.\arabic{theorem}}
+\renewcommand*{\thegausstheorem}{\arabic{section}.\arabic{subsection}.\arabic{theorem}}
+\renewcommand*{\theeulertheorem}{\arabic{section}.\arabic{subsection}.\arabic{theorem}}
+
+\renewcommand*{\thechallenge}{\arabic{section}.\arabic{theorem}}
+\renewcommand*{\thequestion}{\arabic{section}.\arabic{theorem}}
+\renewcommand*{\theproblem}{\arabic{section}.\arabic{theorem}}
+\renewcommand*{\thetheorempiece}{\arabic{section}.\arabic{theorem}.\alph{theorempiece}}
+\renewcommand*{\thechallengepiece}{\arabic{section}.\arabic{theorem}.\alph{challengepiece}}
+\renewcommand*{\thequestionpiece}{\arabic{section}.\arabic{theorem}.\alph{questionpiece}}
+\renewcommand*{\theproblempiece}{\arabic{section}.\arabic{theorem}.\alph{problempiece}}
+
+%------------------------------------
+% Custom Symbols
+%------------------------------------
+\newcommand{\btr}{\blacktriangleright}
+\newcommand{\notimplies}{\;\not\!\!\!\implies}
+\newcommand{\rat}{\rightarrowtail}
+
+%------------------------------------
+% Colors
+%------------------------------------
+\definecolor{paynes.grey}{HTML}{536878}
+\definecolor{light.almond}{HTML}{eee5da}
+\definecolor{deep.charcoal}{HTML}{262424}
+\definecolor{off.white}{HTML}{f9f9f9}
+
+\colorlet{paynes.grey}{paynes.grey}
+\colorlet{light.almond}{light.almond}
+\colorlet{deep.charcoal}{deep.charcoal}
+\colorlet{off.white}{off.white}
+
+%------------------------------------
+% Hyperlink setup
+%------------------------------------
+\hypersetup{
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=black,       % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+
+%------------------------------------
+% Customize the Table of Contents 
+%------------------------------------
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} %.............dotted lines for sections.
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}} %..........dotted lines for subsections.
+\cftsetindents{section}{0.25em}{1.8em} %............................adjust the space between section number & title.
+\cftsetindents{subsection}{1.5em}{2.3em} %.........[exp]............adjust the space between subsection number & title.
+
+%------------------------------------
+% Additional Commands
+%------------------------------------ 
+\titleformat{\section}{\Large\bfseries\centering}{}{0em}{\underline} %......customize section header formatting to hide section numbers & other font edits
+\graphicspath{{Images/}} %..................................................directory to keep all the images used in the project
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\pagecolor{paynes.grey!25} %...........................sets a color for the page
+\thispagestyle{empty} %................................removes page number and headers/footers
+\color{deep.charcoal} %................................sets the text color for all this page
+\setlength{\columnsep}{0.35cm} %..........................sets the gap between columns to 1 cm
+
+\columnratio{0.25}
+\begin{paracol}{2}
+	% 1/2 column of the poster
+
+	\Huge{\bf HOW TO\\
+	MAKE A\\ POSTER: A\\
+	\LaTeX\\TEMPLATE }\\
+	\bigskip
+
+	\footnotesize
+	\textbf{ABSTRACT}\\
+	It is as important to communicate your research as it is to do your research.
+	Ideally, your poster (infographic) should clearly convey your work's key problem statement,
+	significance, main steps of the approach, and significant results.\\
+	
+	\textbf{Reminder! }Often times a good presentation is the one made simple. Be modest about
+	the content and at same time do not vomit redundant information in your presentation.\\
+	\bigskip
+	
+	\textbf{AUTHORS}\\
+	Be proud of your work! Add the names of the people involved in this study. Don't
+	forget to include titles and honorifics. We're proud of those too.\\
+	\smallskip
+
+	\textbf{ACKNOWLEDGEMENT}\\
+	Be grateful to the people who supported your work. Let them know by adding their
+	names to your poster. And who paid you?
+
+	\switchcolumn
+	\begin{multicols}{3}
+		% 2.1/3 column of the poster
+		{\large\textbf{INTRODUCTION}}\\
+		\vspace{-0.3cm}
+
+		Posters are popular method of presenting research findings in a concise and visually
+		pleasing manner. They are commonly used in conferences and meetings. Start by introducing
+		the subject of your research and/or your hypothesis. What are the questions about this
+		topic that you want to answer?
+
+		\columnbreak
+		% 2.2/3 column of the poster
+
+		{\large\textbf{OBJECTIVE}}\\
+		\vspace{-0.3cm}
+
+		It is important for your readers to know what you want to achieve with your research.
+		State this as clear as possible. The objective should also clearly highlight the
+		significance of your project and contribution.
+
+		Do not repeat the Abstract or the Introduction!
+
+		\columnbreak
+		% 2.3/3 column of the poster
+
+		{\large\textbf{METHODOLOGY}}\\
+		\vspace{-0.3cm}
+
+		Let people know how you did your study. Methods can vary depending on the topic or
+		results you want to see. Clearly indicate the tools, programs, and technologies used.
+	
+		You can also show studies of existing literature that were used as references.
+	\end{multicols}
+
+	\begin{tcolorbox}[colback=off.white!80, colframe=off.white!80, arc=0.01mm]
+		\begin{multicols}{2}
+			{\large\textbf{ANALYSIS}}\\
+			\vspace{-0.3cm}
+
+			Expand on your findings by discussing what methods were used to analyze your data.
+			It can get technical so keep it simple and direct to the point. Use bullets for emphasis.
+			Include key graphs, tables, illustrations, and other images that support the study and
+			show a visual analysis of the data. Make sure they are large enough to be seen from a
+			distance but not clutter the poster.\\
+
+			Use illustrations to showcase your data in a visual form. Graphs are great in helping
+			make numbers easier to understand.\\
+
+			Write a caption that will clearly explain what this graphic is about and how it
+			relates to the study.
+
+			\columnbreak
+
+			\begin{figure}[H]  % Wrapping in figure environment
+				\centering
+				\begin{tikzpicture}
+				% Main circle (large dark portion)
+				\fill[paynes.grey!30] (0,0) circle (3);
+			
+				% Individual pie slices
+				\fill[paynes.grey!50] (0,0) -- (210:3) arc (210:250:3) -- cycle;
+				\fill[paynes.grey!60] (0,0) -- (250:3) arc (250:290:3) -- cycle;
+				\fill[paynes.grey!70] (0,0) -- (290:3) arc (290:330:3) -- cycle;
+				\fill[off.white!80] (0,0) -- (330:3) arc (330:360:3) -- cycle;
+			
+				% Exploded slice
+				\begin{scope}[shift={(0.35,-0.1)}]  % Shift the exploded slice
+					\fill[paynes.grey!80] (0,0) -- (330:3) arc (330:360:3) -- cycle;
+				\end{scope}
+				\end{tikzpicture}
+			
+				% Caption
+				\caption*{Exploded pie chart with shaded slices.}
+			\end{figure}
+		\end{multicols}
+	\end{tcolorbox}
+\medskip
+
+	\begin{multicols}{3}
+		% 2.1/3 column of the poster
+		{\large\textbf{RESULTS/FINDINGS}}\\
+		\vspace{-0.3cm}
+
+		Results show the outcome of the project and should answer the question or hypothesis
+		stated in the introduction. State what you've found from your study. This would be
+		the most appealing part of the project and should be highlighted and emphasised.
+
+		\columnbreak
+		% 2.2/3 column of the poster
+
+		{\large\textbf{CONCLUSION}}\\
+		\vspace{-0.3cm}
+
+		Summarize your study and let the viewers know two to three key findings. You can
+		also add a description of each that can give them an idea of what comes next. This
+		section can also include any implications of the study, and if there are any actions
+		or recommendations for future study.
+
+		\columnbreak
+		% 2.3/3 column of the poster
+
+		{\large\textbf{RELATED WORK}}\\
+		\vspace{-0.3cm}
+
+		Research is often built on something that is already out there. Cite key references
+		that you looked at while conducting your study.
+
+		\begin{tcolorbox}[colback=paynes.grey, colframe=paynes.grey, arc=0.01mm]
+			\color{off.white}
+			{\footnotesize\textbf{$\btr$ NOTE.}}\\
+			\vspace{-0.3cm}
+
+			Avoid using too much technical detail or using excessive jargon when your work.
+		\end{tcolorbox}
+	\end{multicols}
+
+\end{paracol}
+
+\end{document}
